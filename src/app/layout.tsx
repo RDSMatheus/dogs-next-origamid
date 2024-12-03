@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
-import "./globals.css";
-
-
+import type { Metadata } from 'next';
+import { type_second } from './functions/fonts';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Dogs Next",
-  description: "Rede social para cachorros",
+  title: 'Dogs Next',
+  description: 'Rede social para cachorros',
 };
 
 export default function RootLayout({
@@ -15,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body>{children}</body>
+      <body className={type_second.variable}>{children}</body>
     </html>
   );
 }

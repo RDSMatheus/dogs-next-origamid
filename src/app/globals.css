@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&display=swap');
-
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,44 +6,45 @@
   text-decoration: none;
 }
 
-body{
+body {
   padding-top: 4rem;
   margin: 0px;
   color: #333;
-  ---type-first: Helvetica, Arial, sans-serif;
-  ---type-second: "Spectral", Georgia;
-  font-family: var(---type-first);
+  --type-first: Helvetica, Arial, sans-serif;
+  --type-second: var(--type-second-spectral), Georgia;
+  font-family: var(--type-first);
 }
 
-img{
+img {
   display: block;
   max-width: 100%;
 }
 
-button, input{
+button,
+input {
   display: block;
   font-size: 1rem;
-  font-family: var(---type-first);
+  font-family: var(--type-first);
   color: #333;
 }
 
-a{
+a {
   text-decoration: none;
   color: #333;
 }
 
-.container{
+.container {
   max-width: 50rem;
   padding: 0 1rem;
   margin: 0 auto;
 }
 
-.mainContainer{
+.mainContainer {
   margin-top: 4rem;
 }
 
-.title{
-  font-family: var(---type-second);
+.title {
+  font-family: var(--type-second);
   line-height: 1;
   font-size: 3rem;
   margin: 1rem 0;
@@ -53,7 +52,7 @@ a{
   z-index: 1;
 }
 
-.title::after{
+.title::after {
   content: "";
   display: block;
   width: 1.5rem;
@@ -62,33 +61,33 @@ a{
   position: absolute;
   bottom: 5px;
   left: -5px;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   z-index: -1;
 }
 
-.animeLeft{
+.animeLeft {
   opacity: 0;
   transform: translateX(-30px);
-  animation: animeLeft .3s forwards;
+  animation: animeLeft 0.3s forwards;
 }
 
 @keyframes animeLeft {
-  to{
+  to {
     opacity: initial;
     transform: initial;
   }
 }
 
-.App{
+.App {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh + 10rem);
 }
 
-.AppBody{
+.AppBody {
   flex: 1;
 }
 
-.VictoryContainer{
+.VictoryContainer {
   height: initial !important;
 }
