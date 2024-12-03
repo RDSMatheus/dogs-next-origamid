@@ -3,25 +3,26 @@ import styles from './header.module.css';
 import Image from 'next/image';
 
 export default async function Header() {
-  const user = true;
+  const user = false;
+
   return (
     <header className={styles.header}>
-      <nav className={`container ${styles.nav}`}>
-        <Link href={'/'} className={styles.logo}>
+      <nav className={`${styles.nav} container`}>
+        <Link className={styles.logo} href={'/'}>
           <Image
             src={'/assets/dogs.svg'}
-            alt={'Dogs'}
+            alt="Dogs"
             width={28}
             height={22}
             priority
           />
         </Link>
         {user ? (
-          <Link href={'/conta'} className={styles.login}>
+          <Link className={styles.login} href={'/conta'}>
             dogs
           </Link>
         ) : (
-          <Link href={'/login'} className={styles.login}>
+          <Link className={styles.login} href={'/login'}>
             Login / Criar
           </Link>
         )}
