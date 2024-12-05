@@ -16,6 +16,7 @@ export default function FeedPhotos({ photos }: { photos: Photo[] }) {
               alt={photo.title}
               sizes="50vw"
             />
+            <span className={styles.visualizacao}>{photo.acessos}</span>
           </Link>
         </li>
       ))}
