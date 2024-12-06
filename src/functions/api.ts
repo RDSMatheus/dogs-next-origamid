@@ -112,12 +112,6 @@ export function PASSWORD_LOST() {
 export function PASSWORD_RESET() {
   return {
     url: `${API_URL}/api/password/reset`,
-    options: {
-      method: 'POST',
-      headers: {
-        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
-      },
-    },
   };
 }
 

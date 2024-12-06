@@ -40,19 +40,13 @@ export default function LoginPerdeuForm() {
     <>
       <form action={action} className={styles.form}>
         <Input label="Email / usuário" name="login" type="text" />
-        <input
-          type="hidden"
-          name="url"
-          value={`${window.location.href.replace('perdeu', 'resetar')}`}
-        />
+        <input type="hidden" name="url" value={url} />
         {state.ok ? (
           <p style={{ color: '#4c1' }}>Email enviado</p>
         ) : (
           <FormButton />
         )}
         <ErrorMessage error={state.error} />
-
-        <p>{state.error}</p>
       </form>
     </>
   );

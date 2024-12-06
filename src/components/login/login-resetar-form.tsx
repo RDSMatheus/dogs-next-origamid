@@ -6,7 +6,7 @@ import Input from '../forms/input';
 import ErrorMessage from '../helper/error';
 import React from 'react';
 import styles from './login-form.module.css';
-import userPost from '@/actions/user-post';
+import passwordReset from '@/actions/password-reset';
 
 function FormButton() {
   const { pending } = useFormStatus();
@@ -14,31 +14,33 @@ function FormButton() {
   return (
     <>
       {pending ? (
-        <Button disabled={pending}>Cadastrando...</Button>
+        <Button disabled={pending}>Enviando...</Button>
       ) : (
-        <Button>Cadastrar</Button>
+        <Button>Resetar Senha</Button>
       )}
     </>
   );
 }
 
-export default function LoginCriarForm() {
-  const [state, action] = useFormState(userPost, {
+export default function LoginResetarForm({
+  keyToken,
+  login,
+}: {
+  login: string;
+  keyToken: string;
+}) {
+  const [state, action] = useFormState(passwordReset, {
     ok: false,
     error: '',
     data: null,
   });
 
-  React.useEffect(() => {
-    if (state.ok) window.location.href = '/conta';
-  }, [state.ok]);
-
   return (
     <>
       <form action={action} className={styles.form}>
-        <Input label="Usuário" name="username" type="text" />
-        <Input label="Email" name="email" type="email" />
-        <Input label="Senha" name="password" type="password" />
+        <Input label="Nova Senha" name="password" type="password" />
+        <input type="hidden" name="login" value={login} />
+        <input type="hidden" name="key" value={keyToken} />
         <ErrorMessage error={state.error} />
         <FormButton />
       </form>
