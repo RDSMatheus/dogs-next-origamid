@@ -9,6 +9,8 @@ import styles from './conta-header.module.css';
 import useMedia from '@/hooks/use-media';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import logout from '@/actions/logout';
+import { useUser } from '@/context/user-context';
 
 function getTitle(pathname: string) {
   switch (pathname) {
@@ -30,8 +32,11 @@ export default function ContaHeader() {
     setMobileMenu(false);
   }, [pathname]);
 
-  function handleLogout() {
-    // userLogout();
+  const { setUser } = useUser();
+
+  async function handleLogout() {
+    await logout();
+    setUser(null);
   }
   return (
     <header className={styles.header}>
@@ -51,18 +56,21 @@ export default function ContaHeader() {
           mobileMenu && styles.navMobileActive
         }`}
       >
-        <Link
-          href="/conta"
-          className={pathname === '/conta' ? 'active' : ''}
-        >
+        <Link href="/conta" className={pathname === '/conta' ? 'active' : ''}>
           <FeedIcon />
           {mobile && 'Minhas Fotos'}
         </Link>
-        <Link href="/conta/estatisticas" className={pathname === '/conta/estatisticas' ? 'active' : ''}>
+        <Link
+          href="/conta/estatisticas"
+          className={pathname === '/conta/estatisticas' ? 'active' : ''}
+        >
           <EstatisticasIcon />
           {mobile && 'Estatisticas'}
         </Link>
-        <Link href="/conta/postar" className={pathname === '/conta/postar' ? 'active' : ''}>
+        <Link
+          href="/conta/postar"
+          className={pathname === '/conta/postar' ? 'active' : ''}
+        >
           <AdicionarIcon />
           {mobile && 'Adicionar Foto'}
         </Link>
