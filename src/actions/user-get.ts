@@ -19,7 +19,7 @@ export default async function userGet() {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
-        Authorization: 'Bearer' + token,
+        Authorization: `Bearer ${token}`,
       },
       next: {
         revalidate: 60,

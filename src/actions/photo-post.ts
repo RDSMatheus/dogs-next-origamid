@@ -21,7 +21,7 @@ export default async function photoPost(state: {}, formData: FormData) {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        Authorization: 'Bearer' + token,
+        Authorization: `Bearer ${token}`,
       },
       body: formData,
     });

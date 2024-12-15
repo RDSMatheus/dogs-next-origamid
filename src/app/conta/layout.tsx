@@ -8,7 +8,6 @@ export default async function ContaLayout({
 }) {
   return (
     <div className="container">
-      <h1>Menu</h1>
       <ContaHeader />
       {children}
     </div>
