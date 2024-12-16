@@ -1,4 +1,5 @@
 'use client';
+
 import photosGet, { Photo } from '@/actions/photos-get';
 import FeedPhotos from './feed-photos';
 import React from 'react';
@@ -18,9 +19,10 @@ export default function Feed({
   const [infinite, setInfinite] = React.useState(
     photos.length < 6 ? false : true,
   );
-  const fetching = React.useRef(false);
 
+  const fetching = React.useRef(false);
   function infiniteScroll() {
+    console.log('aconteceu');
     if (fetching.current) return;
     fetching.current = true;
     setLoading(true);
@@ -54,10 +56,9 @@ export default function Feed({
       window.addEventListener('scroll', infiniteScroll);
       window.addEventListener('wheel', infiniteScroll);
     } else {
-      window.addEventListener('scroll', infiniteScroll);
-      window.addEventListener('wheel', infiniteScroll);
+      window.removeEventListener('scroll', infiniteScroll);
+      window.removeEventListener('wheel', infiniteScroll);
     }
-
     return () => {
       window.removeEventListener('scroll', infiniteScroll);
       window.removeEventListener('wheel', infiniteScroll);
@@ -68,7 +69,7 @@ export default function Feed({
     <div>
       <FeedPhotos photos={photosFeed} />
       <div className={styles.loadingWrapper}>
-        {infinite ? loading && <Loading /> : <p>Não existem mais postagens</p>}
+        {infinite ? loading && <Loading /> : <p>Não existem mais postagens.</p>}
       </div>
     </div>
   );

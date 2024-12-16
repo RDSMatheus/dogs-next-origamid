@@ -3,6 +3,7 @@
 import { USER_GET } from '@/functions/api';
 import apiError from '@/functions/api-error';
 import { cookies } from 'next/headers';
+// import { cache } from 'react';
 
 export type User = {
   id: number;
@@ -19,7 +20,7 @@ export default async function userGet() {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: 'Bearer ' + token,
       },
       next: {
         revalidate: 60,
@@ -32,3 +33,6 @@ export default async function userGet() {
     return apiError(error);
   }
 }
+
+// const userGetCache = cache(userGet);
+// export default userGetCache;

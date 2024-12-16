@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
@@ -10,7 +10,6 @@ export async function middleware(request: NextRequest) {
   if (authenticated && request.nextUrl.pathname.startsWith('/login')) {
     return NextResponse.redirect(new URL('/conta', request.url));
   }
-
   return NextResponse.next();
 }
 

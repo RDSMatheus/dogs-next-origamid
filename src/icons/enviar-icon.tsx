@@ -1,4 +1,4 @@
-export default async function EnviarIcon() {
+export default function EnviarIcon() {
   return (
     <svg
       width="43"

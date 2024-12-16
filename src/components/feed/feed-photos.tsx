@@ -1,7 +1,7 @@
 import { Photo } from '@/actions/photos-get';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './feed.module.css';
-import Image from 'next/image';
 
 export default function FeedPhotos({ photos }: { photos: Photo[] }) {
   return (
@@ -14,7 +14,7 @@ export default function FeedPhotos({ photos }: { photos: Photo[] }) {
               width={1500}
               height={1500}
               alt={photo.title}
-              sizes="50vw"
+              sizes="80vw"
             />
             <span className={styles.visualizacao}>{photo.acessos}</span>
           </Link>

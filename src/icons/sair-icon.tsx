@@ -1,4 +1,4 @@
-export default async function SairIcon() {
+export default function AdicionarIcon() {
   return (
     <svg
       width="28"

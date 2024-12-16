@@ -9,17 +9,17 @@ export default async function passwordLost(state: {}, formData: FormData) {
 
   try {
     if (!login) throw new Error('Preencha os dados.');
-    console.log(urlPerdeu);
     const { url } = PASSWORD_LOST();
     const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ login, url: urlPerdeu }),
+      body: JSON.stringify({
+        login,
+        url: urlPerdeu,
+      }),
     });
-    const data = await response.json();
-    console.log(data);
     if (!response.ok) throw new Error('Email ou usuário não cadastrado.');
     return { data: null, ok: true, error: '' };
   } catch (error: unknown) {

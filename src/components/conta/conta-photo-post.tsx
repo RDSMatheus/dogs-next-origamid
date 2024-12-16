@@ -2,8 +2,8 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import Button from '@/components/forms/button';
-import Input from '../forms/input';
-import ErrorMessage from '../helper/error';
+import Input from '@/components/forms/input';
+import ErrorMessage from '../helper/error-message';
 import React from 'react';
 import styles from './conta-photo-post.module.css';
 import photoPost from '@/actions/photo-post';
@@ -30,7 +30,6 @@ export default function ContaPhotoPost() {
   });
 
   const [img, setImg] = React.useState('');
-
   function handleImgChange({ target }: React.ChangeEvent<HTMLInputElement>) {
     if (target.files) {
       setImg(URL.createObjectURL(target.files[0]));
@@ -44,11 +43,11 @@ export default function ContaPhotoPost() {
         <Input label="Peso" name="peso" type="number" />
         <Input label="Idade" name="idade" type="number" />
         <input
+          onChange={handleImgChange}
           type="file"
           name="img"
           id="img"
           className={styles.file}
-          onChange={handleImgChange}
         />
         <ErrorMessage error={state.error} />
         <FormButton />

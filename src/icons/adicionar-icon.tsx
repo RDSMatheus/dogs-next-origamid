@@ -1,4 +1,4 @@
-export default async function AdicionarIcon() {
+export default function AdicionarIcon() {
   return (
     <svg
       width="28"

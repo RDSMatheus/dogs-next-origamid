@@ -20,14 +20,14 @@ export default async function ContaPage() {
           <p
             style={{ color: '#444', fontSize: '1.25rem', marginBottom: '1rem' }}
           >
-            Não tem nenhuma foto
+            Nenhuma foto encontrada.
           </p>
           <Link
             href={'/conta/postar'}
             className="button"
             style={{ display: 'inline-block' }}
           >
-            Postar foto
+            Postar Foto
           </Link>
         </div>
       )}

@@ -2,8 +2,8 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import Button from '@/components/forms/button';
-import Input from '../forms/input';
-import ErrorMessage from '../helper/error';
+import Input from '@/components/forms/input';
+import ErrorMessage from '../helper/error-message';
 import React from 'react';
 import styles from './login-form.module.css';
 import passwordReset from '@/actions/password-reset';
@@ -14,7 +14,7 @@ function FormButton() {
   return (
     <>
       {pending ? (
-        <Button disabled={pending}>Enviando...</Button>
+        <Button disabled={pending}>Resetando...</Button>
       ) : (
         <Button>Resetar Senha</Button>
       )}
@@ -36,14 +36,12 @@ export default function LoginResetarForm({
   });
 
   return (
-    <>
-      <form action={action} className={styles.form}>
-        <Input label="Nova Senha" name="password" type="password" />
-        <input type="hidden" name="login" value={login} />
-        <input type="hidden" name="key" value={keyToken} />
-        <ErrorMessage error={state.error} />
-        <FormButton />
-      </form>
-    </>
+    <form action={action} className={styles.form}>
+      <Input label="Nova Senha" name="password" type="password" />
+      <input type="hidden" name="login" value={login} />
+      <input type="hidden" name="key" value={keyToken} />
+      <ErrorMessage error={state.error} />
+      <FormButton />
+    </form>
   );
 }

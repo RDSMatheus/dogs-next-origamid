@@ -2,8 +2,8 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import Button from '@/components/forms/button';
-import Input from '../forms/input';
-import ErrorMessage from '../helper/error';
+import Input from '@/components/forms/input';
+import ErrorMessage from '../helper/error-message';
 import React from 'react';
 import styles from './login-form.module.css';
 import passwordLost from '@/actions/password-lost';
@@ -31,23 +31,20 @@ export default function LoginPerdeuForm() {
 
   const [url, setUrl] = React.useState('');
 
-  // necessário setar o url de forma reativa ou usar o force dynamic, caso contrário irá quebrar a aplicação quando o next tentar acessar o window no servidor
   React.useEffect(() => {
     setUrl(window.location.href.replace('perdeu', 'resetar'));
   }, []);
 
   return (
-    <>
-      <form action={action} className={styles.form}>
-        <Input label="Email / usuário" name="login" type="text" />
-        <input type="hidden" name="url" value={url} />
-        {state.ok ? (
-          <p style={{ color: '#4c1' }}>Email enviado</p>
-        ) : (
-          <FormButton />
-        )}
-        <ErrorMessage error={state.error} />
-      </form>
-    </>
+    <form action={action} className={styles.form}>
+      <Input label="Email / Usuário" name="login" type="text" />
+      <input type="hidden" name="url" value={url} />
+      <ErrorMessage error={state.error} />
+      {state.ok ? (
+        <p style={{ color: '#4c1' }}>Email enviado.</p>
+      ) : (
+        <FormButton />
+      )}
+    </form>
   );
 }

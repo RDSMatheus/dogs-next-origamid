@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Resetar a senha | Dogs',
-  description: 'Resete a sua senha.',
+  description: 'Resete a sua senha',
 };
 
 type ResetarSearchParams = {
@@ -18,7 +18,7 @@ export default async function ResetarPage({
 }: ResetarSearchParams) {
   return (
     <div className="animeLeft">
-      <h1 className="title">Resete a senha</h1>
+      <h1 className="title">Resete a Senha</h1>
       <LoginResetarForm
         keyToken={searchParams.key}
         login={searchParams.login}

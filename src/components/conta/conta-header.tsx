@@ -33,11 +33,11 @@ export default function ContaHeader() {
   }, [pathname]);
 
   const { setUser } = useUser();
-
   async function handleLogout() {
     await logout();
     setUser(null);
   }
+
   return (
     <header className={styles.header}>
       <h1 className="title">{getTitle(pathname)}</h1>
@@ -65,7 +65,7 @@ export default function ContaHeader() {
           className={pathname === '/conta/estatisticas' ? 'active' : ''}
         >
           <EstatisticasIcon />
-          {mobile && 'Estatisticas'}
+          {mobile && 'Estatísticas'}
         </Link>
         <Link
           href="/conta/postar"

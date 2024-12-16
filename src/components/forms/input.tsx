@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './input.module.css';
 
 type InputProps = React.ComponentProps<'input'> & {
@@ -9,10 +8,10 @@ type InputProps = React.ComponentProps<'input'> & {
 export default function Input({ label, error, ...props }: InputProps) {
   return (
     <div className={styles.wrapper}>
-      <label htmlFor={props.name} className={styles.label}>
+      <label className={styles.label} htmlFor={props.name}>
         {label}
       </label>
-      <input id={props.name} {...props} className={styles.input} />
+      <input className={styles.input} type="text" id={props.name} {...props} />
       {error && <p className={styles.error}>{error}</p>}
     </div>
   );

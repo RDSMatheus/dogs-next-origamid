@@ -6,9 +6,9 @@
 }
 
 .login::before {
-  content: "";
   display: block;
-  background: url("/assets/login.jpg") center center;
+  content: '';
+  background: url('/assets/login.jpg') no-repeat center center;
   background-size: cover;
 }
 
@@ -22,11 +22,9 @@
   .login {
     grid-template-columns: 1fr;
   }
-
   .login::before {
     display: none;
   }
-
   .forms {
     max-width: 100%;
   }

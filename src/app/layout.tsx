@@ -17,6 +17,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const { data: user } = await userGet();
+
   return (
     <html lang="pt-BR">
       <body className={type_second.variable}>

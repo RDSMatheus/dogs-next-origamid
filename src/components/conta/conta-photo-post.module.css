@@ -1,4 +1,4 @@
-.photoPost{
+.photoPost {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
@@ -6,12 +6,12 @@
 }
 
 @media (max-width: 40rem) {
-  .photoPost{
+  .photoPost {
     grid-template-columns: 1fr;
   }
 }
 
-.file{
+.file {
   margin-bottom: 1rem;
 }
 
@@ -21,8 +21,8 @@
   background-position: center center;
 }
 
-.preview::after{
-  content: "";
+.preview::after {
+  content: '';
   display: block;
   height: 0px;
   padding-bottom: 100%;

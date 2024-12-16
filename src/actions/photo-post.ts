@@ -16,12 +16,11 @@ export default async function photoPost(state: {}, formData: FormData) {
   try {
     if (!token || !nome || !idade || !peso || img.size === 0)
       throw new Error('Preencha os dados.');
-
     const { url } = PHOTO_POST();
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: 'Bearer ' + token,
       },
       body: formData,
     });
